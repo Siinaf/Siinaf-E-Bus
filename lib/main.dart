@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
    return MaterialApp(
      debugShowCheckedModeBanner: false,
-     initialRoute: Signin.idscreen,
+     initialRoute: HomeScreen.idscreen,
      routes: {
        Signup.idscreen: (context) => Signup(),
        Signin.idscreen: (context) => Signin(),
