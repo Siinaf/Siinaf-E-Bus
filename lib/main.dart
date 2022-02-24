@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:siinafbusticketing/AllScreen/home_screen.dart';
+import 'package:siinafbusticketing/AllScreen/profile.dart';
 import 'package:siinafbusticketing/AllScreen/signup.dart';
 import 'package:siinafbusticketing/AllScreen/splash.dart';
 import 'package:siinafbusticketing/AllScreen/signin.dart';
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget{
        Signup.idscreen: (context) => Signup(),
        Signin.idscreen: (context) => Signin(),
        HomeScreen.idscreen: (context)=> HomeScreen(),
+       ProfilePage.idscreen: (context)=>ProfilePage(),
+
 
      },
 

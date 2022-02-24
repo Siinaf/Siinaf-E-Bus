@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:siinafbusticketing/AllScreen/profile.dart';
+import 'package:siinafbusticketing/AllScreen/signin.dart';
 import 'package:siinafbusticketing/widgets/divider.dart';
 
    class HomeScreen extends StatelessWidget{
@@ -11,7 +13,7 @@ import 'package:siinafbusticketing/widgets/divider.dart';
   Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
-         backgroundColor: Colors.green[700],
+         backgroundColor: Colors.green,
          title: Text("ODA Bus",
            textAlign: TextAlign.center,
            style: TextStyle(
@@ -138,10 +140,15 @@ import 'package:siinafbusticketing/widgets/divider.dart';
                            Text("Profile Name",
                              style: TextStyle(
                                  fontSize: 16.0,
+                               color: Colors.white,
                                  ),
                            ),
                            SizedBox(height: 6.0,),
-                           Text("Visit Profile"),
+                           Text("Phone Number",
+                           style: TextStyle(
+                             fontSize: 12.0,
+                             color: Colors.white,
+                           ),),
                          ],
                        ),
                      ],
@@ -153,7 +160,16 @@ import 'package:siinafbusticketing/widgets/divider.dart';
                // drawer body controllers
                ListTile(
                  leading: Icon(Icons.person),
-                 title: Text("Visit Profile", style: TextStyle(fontSize: 15.0),),
+                 title: Text("Profile", style: TextStyle(fontSize: 15.0),
+                 ),
+                 onTap: (){
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(
+                       builder: (context) => ProfilePage(),
+                     ),
+                   );
+                 },
                ),
                ListTile(
                  leading: Icon(Icons.history),
@@ -173,6 +189,11 @@ import 'package:siinafbusticketing/widgets/divider.dart';
                  title: Text("Language", style: TextStyle(fontSize: 15.0),),
                ),
                ListTile(
+                 leading: Icon(Icons.notifications),
+                 title: Text("Notifications", style: TextStyle(fontSize: 15.0),
+                 ),
+               ),
+               ListTile(
                  leading: Icon(Icons.info),
                  title: Text("About US", style: TextStyle(fontSize: 15.0),),
                ),
@@ -182,7 +203,32 @@ import 'package:siinafbusticketing/widgets/divider.dart';
                ),
                ListTile(
                  leading: Icon(Icons.logout),
-                 title: Text("Logout", style: TextStyle(fontSize: 15.0),),
+                 title: Text("Logout", style: TextStyle(fontSize: 15.0),
+                 ),
+                 onTap: (){
+                    showDialog(context: context, barrierDismissible: true, builder: (param){
+                     return AlertDialog(
+                       actions: <Widget>[
+                         FlatButton(
+                             color: Colors.green,
+                             onPressed: () => Navigator.pop(context),
+                             child: Text("Cancel")),
+                         FlatButton(
+                             color: Colors.red,
+                             onPressed: (){
+                               Navigator.push(
+                                 context,
+                                 MaterialPageRoute(
+                                   builder: (context) => Signin(),
+                                 ),
+                               );
+                             },
+                             child: Text("Logout")),
+                       ],
+                       title: Text('Are you sure do you want to Logout ?'),
+                     );
+                   });
+                 },
                ),
              ],
            ),
